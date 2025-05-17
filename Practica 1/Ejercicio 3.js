@@ -1,6 +1,3 @@
-function saludoPersonalizado (nombre, edad){
-    
-    return saludo ="Hola, " + nombre + ". Tienes " + edad + " años.";
-}
+const saludoPersonalizado = (nombre, edad) => "Hola," + nombre + " Tienes. " +edad+ "años.";
 
-console.log (saludoPersonalizado("Pepe", 20))
+console.log(saludoPersonalizado("Pepe", 20));
