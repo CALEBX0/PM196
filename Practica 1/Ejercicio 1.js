@@ -1,5 +1,5 @@
 let nombre = "Armando";
-let edad = 25;
+const edad = 25;
 
 nombre= "Ana Maria";
 
