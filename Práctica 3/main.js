@@ -1,4 +1,4 @@
-import { restar } from "./utils";
+import { restar } from "./utils.js";
 
 console.log("5 - 3 =", restar(5, 3));
 console.log("79 - 10 =", restar(79, 10));
