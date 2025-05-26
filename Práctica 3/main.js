@@ -17,3 +17,20 @@ verificarUsuario("admin")
 verificarUsuario("caleb")
     .then(res => console.log(res))
     .catch(err => console.log(err));
+
+
+    function simularPeticionAPI() {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve("Datos obtenidos correctamente");
+        }, 2000);
+    });
+}
+
+async function ObtenerDatos() {
+    console.log("Aguante... estan cargando los datos...");
+    const resultado = await simularPeticionAPI();
+    console.log(resultado);
+}
+
+ObtenerDatos();
