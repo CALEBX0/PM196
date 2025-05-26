@@ -13,3 +13,4 @@ personas.forEach(persona => {
 
 const totalEdad = personas.reduce((total, persona) => total + persona.edad, 0);
 console.log("La suma de todas las edades es: " + totalEdad); 
+ 
