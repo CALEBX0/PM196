@@ -3,36 +3,26 @@ import { StyleSheet, Text, View } from 'react-native';
 import { Button } from 'react-native-web';
 
 
-const Texto= () => {
+const Texto= (props) => {
+  const {contenido}=props
   return(
-    <Text> Hello, Sekai!</Text>
+    <Text>{contenido}</Text>
     )
 }
 
-
+//MAIN
 export default function App() {
   return (
     <View style={styles.container}>
-      <Texto></Texto>
-      <Texto></Texto>
-      <Texto></Texto>
-      <Texto></Texto>
-      <Texto></Texto>
-      <Texto></Texto>
-      <Texto></Texto>
-      <Texto></Texto>
-      <Texto></Texto>
-      <Texto></Texto>
-      <Texto></Texto>
-      <Texto></Texto>
-      <Texto></Texto>
-      <Texto></Texto>
-      <Texto></Texto>
-      <Texto></Texto>
-      <Texto></Texto>
-      <Texto></Texto>
+          <StatusBar style="auto" />
+          
+      <Texto contenido="Hello"> </Texto>
+      <Texto contenido="sekai"> </Texto>
+      <Texto contenido="React Native"> </Texto>
+
       <Button title='Tocame ;)'></Button>
-      <StatusBar style="auto" />
+
+
     </View>
   );
 }
