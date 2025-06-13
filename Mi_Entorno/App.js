@@ -1,12 +1,23 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button } from 'react-native';
+import React, {useState} from 'react' ;
 
 
-const Texto= (props) => {
-  const {children}=props
+const Texto= () => {
+  const [contenido, setContenido]=useState('Siiiiii tocameeeee')
+  const actualizaTexto=()=>{setContenido('Gracias')}
   return(
-    <Text>{children}</Text>
-    )
+    <Text onPress={actualizaTexto} >{contenido}</Text>
+  )
+}
+
+const Boton= () => {
+  const [contboton, setcontboton]=useState('Tocame Tocame!!!!')
+  const actualizarBoton=()=> {setcontboton("Oooooooooo... gracias <3")}
+  return(
+    <Button onPress={actualizarBoton} title={contboton}></Button>
+  )
+
 }
 
 
@@ -16,11 +27,10 @@ export default function App() {
     <View style={styles.container}>
           <StatusBar style="auto" />
 
-      <Texto> "Hello"</Texto>
-      <Texto> "sekai"</Texto>
-      <Texto> React Native</Texto>
+      <Texto> </Texto>
+      <Texto> </Texto>
 
-      <Button title='Tocame ;)'></Button>
+      <Boton> </Boton>
 
 
     </View>
