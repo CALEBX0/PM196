@@ -3,11 +3,11 @@ import { StyleSheet, Text, View, Button } from 'react-native';
 import React, {useState} from 'react' ;
 
 
-const Texto= () => {
+const Texto= ({style}) => {
   const [contenido, setContenido]=useState('Siiiiii tocameeeee')
   const actualizaTexto=()=>{setContenido('Gracias')}
   return(
-    <Text onPress={actualizaTexto} >{contenido}</Text>
+    <Text style={[styles.text,style]} onPress={actualizaTexto} >{contenido}</Text>
   )
 }
 
@@ -27,21 +27,36 @@ export default function App() {
     <View style={styles.container}>
           <StatusBar style="auto" />
 
-      <Texto> </Texto>
-      <Texto> </Texto>
+      <Texto style={styles.verdecin}> </Texto>
+      <Texto style={styles.amarillo}> </Texto>
+      <Texto style={styles.cafecin}> </Texto>
 
-      <Boton> </Boton>
+      <Boton > </Boton>
 
 
     </View>
   );
 }
 
+//3.Estilos
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: '#268',
+    alignItems: 'stretch',
+    justifyContent: 'space-evenly',
+    flexDirection:'row',
   },
+
+  text:{
+    color:'cyan',
+    fontSize:27
+  },
+  verdecin:{backgroundColor:'green'},
+  amarillo:{backgroundColor:'yellow'},
+  cafecin:{backgroundColor:'brown'}
+
 });
+
+
+  
