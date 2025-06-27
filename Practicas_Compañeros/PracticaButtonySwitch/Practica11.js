@@ -10,45 +10,35 @@ import {
   Image,
   ImageBackground,
   Switch,
-  ActivityIndicator,
 } from "react-native";
 
 export default function App() {
   const [nombre, setNombre] = useState("");
   const [email, setEmail] = useState("");
   const [aceptarTerminos, setAceptarTerminos] = useState(false);
-  const [loading, setLoading] = useState(false);
 
   const handleRegister = () => {
     if (!nombre.trim() || !email.trim()) {
       Alert.alert(
-        "Campos incompletos",
-        "Por favor, completa tu nombre y correo electrónico.",
+        "Error",
+        "Por favor, completa todos los campos obligatorios.",
         [{ text: "OK" }]
       );
       return;
     }
     if (!aceptarTerminos) {
       Alert.alert(
-        "Términos y condiciones",
-        "Debes aceptar los términos y condiciones para registrarte.",
+        "Error",
+        "Debes aceptar los términos y condiciones.",
         [{ text: "OK" }]
       );
       return;
     }
-
-    // Simular proceso de registro mostrando loader
-    setLoading(true);
-
-    // Simular una espera de 2 segundos
-    setTimeout(() => {
-      setLoading(false);
-      Alert.alert(
-        "¡Registro exitoso!",
-        `Tus datos:\n\nNombre: ${nombre}\nEmail: ${email}`,
-        [{ text: "OK", onPress: limpiarFormulario }]
-      );
-    }, 2000);
+    Alert.alert(
+      "Registro exitoso",
+      `Nombre: ${nombre}\nEmail: ${email}`,
+      [{ text: "OK", onPress: limpiarFormulario }]
+    );
   };
 
   const limpiarFormulario = () => {
@@ -71,6 +61,7 @@ export default function App() {
           <Text style={styles.bienvenida}>Bienvenido a la app</Text>
         </View>
 
+        {/* Logo personalizado */}
         <Image
           source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/a/ab/Logo_TV_2015.png' }}
           style={styles.logo}
@@ -103,11 +94,7 @@ export default function App() {
             <Text style={styles.terminosText}>Aceptar términos y condiciones</Text>
           </View>
 
-          {loading ? (
-            <ActivityIndicator size="large" color="#2196F3" />
-          ) : (
-            <Button title="Registrarse" onPress={handleRegister} color="#2196F3" />
-          )}
+          <Button title="Registrarse" onPress={handleRegister} color="#2196F3" />
         </View>
       </SafeAreaView>
     </ImageBackground>
@@ -115,8 +102,14 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  background: { flex: 1 },
-  container: { flex: 1, padding: 20, justifyContent: "center" },
+  background: {
+    flex: 1,
+  },
+  container: {
+    flex: 1,
+    padding: 20,
+    justifyContent: "center",
+  },
   overlay: {
     backgroundColor: "rgba(0,0,0,0.5)",
     padding: 15,
@@ -124,7 +117,11 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     marginBottom: 20,
   },
-  bienvenida: { color: "white", fontSize: 22, textAlign: "center" },
+  bienvenida: {
+    color: "white",
+    fontSize: 22,
+    textAlign: "center",
+  },
   logo: {
     width: 120,
     height: 120,
@@ -156,5 +153,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginBottom: 20,
   },
-  terminosText: { marginLeft: 10, flex: 1, fontSize: 14 },
+  terminosText: {
+    marginLeft: 10,
+    flex: 1,
+    fontSize: 14,
+  },
 });
