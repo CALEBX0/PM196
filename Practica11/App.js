@@ -1,17 +1,5 @@
 import React, { useState } from "react";
-import {
-  View,
-  Text,
-  TextInput,
-  Button,
-  Alert,
-  StyleSheet,
-  SafeAreaView,
-  Image,
-  ImageBackground,
-  Switch,
-  ActivityIndicator,
-} from "react-native";
+import {View,Text,TextInput,Button,StyleSheet,SafeAreaView,Image,ImageBackground,Switch,ActivityIndicator,Platform,Alert,} from "react-native";
 
 export default function App() {
   const [nombre, setNombre] = useState("");
@@ -19,35 +7,40 @@ export default function App() {
   const [aceptarTerminos, setAceptarTerminos] = useState(false);
   const [loading, setLoading] = useState(false);
 
+  // ✅ Función universal de alerta que funciona en web y móvil
+  const mostrarAlerta = (titulo, mensaje) => {
+    if (Platform.OS === "web") {
+      window.alert(`${titulo}\n\n${mensaje}`);
+    } else {
+      Alert.alert(titulo, mensaje);
+    }
+  };
+
   const handleRegister = () => {
     if (!nombre.trim() || !email.trim()) {
-      Alert.alert(
+      mostrarAlerta(
         "Campos incompletos",
-        "Por favor, completa tu nombre y correo electrónico.",
-        [{ text: "OK" }]
+        "Por favor, completa tu nombre y correo electrónico."
       );
       return;
     }
     if (!aceptarTerminos) {
-      Alert.alert(
+      mostrarAlerta(
         "Términos y condiciones",
-        "Debes aceptar los términos y condiciones para registrarte.",
-        [{ text: "OK" }]
+        "Debes aceptar los términos y condiciones para registrarte."
       );
       return;
     }
 
-    // Simular proceso de registro mostrando loader
     setLoading(true);
 
-    // Simular una espera de 2 segundos
     setTimeout(() => {
       setLoading(false);
-      Alert.alert(
+      mostrarAlerta(
         "¡Registro exitoso!",
-        `Tus datos:\n\nNombre: ${nombre}\nEmail: ${email}`,
-        [{ text: "OK", onPress: limpiarFormulario }]
+        `Tus datos:\n\nNombre: ${nombre}\nEmail: ${email}`
       );
+      limpiarFormulario();
     }, 2000);
   };
 
@@ -71,8 +64,9 @@ export default function App() {
           <Text style={styles.bienvenida}>Bienvenido a la app</Text>
         </View>
 
+        {/* Logo personalizado */}
         <Image
-          source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/a/ab/Logo_TV_2015.png' }}
+          source={{ uri: 'https://d1csarkz8obe9u.cloudfront.net/posterpreviews/lion-fire-logo-design-template-free-89daa14626ac403bd3cf6282036663ff_screen.jpg?ts=1572094154' }}
           style={styles.logo}
         />
 
