@@ -1,14 +1,16 @@
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, Pressable} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-export default function Home({navigation}) {
+export default function Profile_info({navigation}) {
     return (
         <View style={styles.container}>
-            <View style={styles.iconRow}>
-                <Ionicons name="home-outline" size={28} color="red" />
-                <Text style={styles.title}>Perfil de usuario</Text>
-            </View>
+
+            <Text style={styles.title}>Detalles Usuario</Text>
+            <Text style={styles.subtitle}>Usando Navigation Stack</Text>
+
         </View>
+
+
     );
 }
 
@@ -25,9 +27,13 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     title: {
-        fontSize: 18,
-        fontWeight: 'bold',
+        fontSize: 22,
         marginLeft: 10,
-        color: 'red',
+        color: 'black',
+    },
+    subtitle: {
+        fontSize: 18,
+        marginLeft: 10,
+        color: 'blue',
     },
 });
