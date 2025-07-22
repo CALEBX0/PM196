@@ -63,7 +63,7 @@ export default function App() {
         <Stack.Screen
           name="Profile_info"
           component={Profile_info}
-          options={{ title: 'Detalles', headerTitleAlign: 'center' }}
+          options={{ title: 'Detalles', headerTitleAlign: 'center' }}  
         />
       </Stack.Navigator>
     </NavigationContainer>
